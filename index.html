@@ -67,6 +67,16 @@
             color: #667eea;
         }
 
+        /* Menu mobile */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #4a5568;
+            cursor: pointer;
+        }
+
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -247,6 +257,7 @@
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
+            white-space: nowrap;
         }
 
         .experience-description {
@@ -347,6 +358,7 @@
             color: #4a5568;
             font-size: 0.9rem;
         }
+
         /* Certifications */
         .certifications-grid {
             display: grid;
@@ -375,7 +387,7 @@
         }
 
         .certification-title {
-            color: #000;
+            color: #2d3748;
             font-size: 1.2rem;
             font-weight: bold;
             margin-bottom: 0.5rem;
@@ -388,21 +400,21 @@
         }
 
         .certification-date {
-            color: #000;
+            color: #4a5568;
             font-size: 0.9rem;
             margin-bottom: 1rem;
         }
 
         .certification-description {
-            color: #000;
+            color: #4a5568;
             font-size: 0.9rem;
             line-height: 1.4;
         }
 
         .certification-badge {
             position: absolute;
-            top: -5px;
-            right: -5px;
+            top: 10px;
+            right: 10px;
             background: #48bb78;
             color: white;
             border-radius: 50%;
@@ -430,7 +442,7 @@
         .status-in-progress {
             background: #fed7d7;
             color: #c53030;
-        }        
+        }
 
         /* Contact */
         .contact-content {
@@ -487,10 +499,32 @@
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: rgba(255, 255, 255, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 1rem;
+                box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
             }
             
             .hero h1 {
                 font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+                padding: 0 1rem;
             }
             
             .about-content {
@@ -500,11 +534,53 @@
             
             .experience-header {
                 flex-direction: column;
+                align-items: flex-start;
                 gap: 0.5rem;
+            }
+
+            .experience-date {
+                align-self: flex-start;
             }
             
             .contact-info {
                 grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .certifications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            section {
+                margin: 1rem 0;
+                padding: 2rem 0;
+            }
+
+            .hero {
+                padding: 2rem 0;
+            }
+
+            .btn {
+                display: block;
+                margin: 0.5rem auto;
+                text-align: center;
             }
         }
     </style>
@@ -514,14 +590,16 @@
     <header>
         <nav class="container">
             <div class="logo">📊 Innocent BIGIRIMANA</div>
-            <ul class="nav-links">
-                <li><a href="#home">Accueil</a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#skills">Compétences</a></li>
-                <li><a href="#experience">Expériences</a></li>
-                <li><a href="#projects">Projets</a></li>
-                <li><a href="#formation">Formations</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" onclick="closeMobileMenu()">Accueil</a></li>
+                <li><a href="#about" onclick="closeMobileMenu()">À propos</a></li>
+                <li><a href="#skills" onclick="closeMobileMenu()">Compétences</a></li>
+                <li><a href="#experience" onclick="closeMobileMenu()">Expériences</a></li>
+                <li><a href="#projects" onclick="closeMobileMenu()">Projets</a></li>
+                <li><a href="#formation" onclick="closeMobileMenu()">Formations</a></li>
+                <li><a href="#certifications" onclick="closeMobileMenu()">Certifications</a></li>
+                <li><a href="#contact" onclick="closeMobileMenu()">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -530,7 +608,7 @@
     <section id="home" class="hero">
         <div class="container">
             <h1>Salut, je suis Innocent BIGIRIMANA 👋</h1>
-            <p>Data Analyst passionné par l'Intelligence Artificielle et le Machine Learning. Actuellement en Master de Statistique et recherche d'alternance pour approfondir mes compétences en Data Science.</p>
+            <p>Data Analyst passionné par l'Intelligence Artificielle et le Machine Learning. Actuellement en Master de Statistique et en recherche d'alternance pour approfondir mes compétences en Data Science.</p>
             <div class="hero-buttons">
                 <a href="https://github.com/bigirimanainnocent12" target="_blank" class="btn btn-primary">Voir mes projets</a>
                 <a href="#contact" class="btn btn-secondary">Me contacter</a>
@@ -576,8 +654,7 @@
                     <div class="skill-icon">📊</div>
                     <h3>Analyse & Visualisation</h3>
                     <div class="skill-list">
-                        Création des Tableaux de bord interactifs avec Power BI, R Studio, Séries temporelles, Analyse prédictive.
-
+                        Création des Tableaux de bord interactifs avec Power BI, R Studio, Séries temporelles, Analyse prédictive
                     </div>
                 </div>
                 <div class="skill-card">
@@ -656,7 +733,7 @@
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">Scikit-Learn</span>
                             <span class="tech-tag">RandomForest</span>
-                             <span class="tech-tag">joblib</span>
+                            <span class="tech-tag">joblib</span>
                             <span class="tech-tag">Streamlit</span>
                         </div>
                     </div>
@@ -735,7 +812,7 @@
                     <div class="certification-badge">✓</div>
                     <div class="certification-icon">🐍🤖📊</div>
                     <div class="certification-title">Data Science et Machine Learning | MasterClass Python</div>
-                    <div class="certification-provider">Ûdemy</div>
+                    <div class="certification-provider">Udemy</div>
                     <div class="certification-date">Février 2025</div>
                     <div class="certification-description">
                         Data Science et le Machine Learning avec Python ! (NumPy, Pandas, Matplotlib, Scikit-Learn et bien plus...).
@@ -748,7 +825,7 @@
                     <div class="certification-badge">✓</div>
                     <div class="certification-icon">🗄️☁️</div>
                     <div class="certification-title">Data Science avec Python, SQL, FastAPI, Streamlit & Docker</div>
-                    <div class="certification-provider">Ûdemy</div>
+                    <div class="certification-provider">Udemy</div>
                     <div class="certification-date">Avril 2025</div>
                     <div class="certification-description">
                         De la Modélisation SQLAlchemy à l'API et à la Data App : maîtrisez Python grâce à un projet 100% pratique, réel et complet.
@@ -758,27 +835,25 @@
                 </div>
 
                 <div class="certification-card">
-                    <div class="certification-badge">✓</div>
+                    <div class="certification-badge">⏳</div>
                     <div class="certification-icon">🗄️</div>
                     <div class="certification-title">Le Pack ULTIME sur les bases de données</div>
-                    <div class="certification-provider">Ûdemy</div>
+                    <div class="certification-provider">Udemy</div>
                     <div class="certification-date">Septembre 2024</div>
                     <div class="certification-description">
                         Devenez un expert sur SQL. 47 heures au total.
                     </div>
-                    <div class="certification-status status-completed">En cours</div>
+                    <div class="certification-status status-in-progress">En cours</div>
                 </div>
-
-           
 
                 <div class="certification-card">
                     <div class="certification-badge">✓</div>
                     <div class="certification-icon">📈</div>
-                    <div class="certification-title">Devenir un expert de Power Bi</div>
-                    <div class="certification-provider">Ûdemy</div>
+                    <div class="certification-title">Devenir un expert de Power BI</div>
+                    <div class="certification-provider">Udemy</div>
                     <div class="certification-date">Janvier 2025</div>
                     <div class="certification-description">
-                        Power Bi, Power Query, Dax, Power Bi Services, Data visualisation, BI, Business Intelligence.
+                        Power BI, Power Query, DAX, Power BI Services, Data visualisation, BI, Business Intelligence.
                         48,5 heures au total.
                     </div>
                     <div class="certification-status status-completed">Certifié</div>
@@ -788,18 +863,17 @@
                     <div class="certification-badge">📚</div>
                     <div class="certification-icon">☁️</div>
                     <div class="certification-title">Streamlit : Déployer son app de Machine Learning sur le web</div>
-                    <div class="certification-provider">Ûdemy</div>
+                    <div class="certification-provider">Udemy</div>
                     <div class="certification-date">Juin 2025</div>
                     <div class="certification-description">
-                        Créez rapidement une superbe application web et déployez votre modèle d'IA dans le monde entier avec Python !.
+                        Créez rapidement une superbe application web et déployez votre modèle d'IA dans le monde entier avec Python !
                         4,5 heures au total.
                     </div>
                     <div class="certification-status status-in-progress">Prévu</div>
                 </div>
             </div>
         </div>
-    </section>    
-    
+    </section>
 
     <!-- Contact Section -->
     <section id="contact">
@@ -812,7 +886,6 @@
                         <span>📧</span>
                         <a href="mailto:gatoziinnocent@gmail.com">gatoziinnocent@gmail.com</a>
                     </div>
-                  
                     <div class="contact-item">
                         <span>🔗</span>
                         <a href="https://www.linkedin.com/in/bigirimana-innocent-51867a216/" target="_blank">LinkedIn</a>
@@ -838,6 +911,27 @@
     </footer>
 
     <script>
+        // Menu mobile
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.remove('active');
+        }
+
+        // Fermer le menu mobile quand on clique ailleurs
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+
         // Smooth scrolling pour les liens de navigation
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -868,11 +962,44 @@
         }, observerOptions);
 
         // Observer toutes les cartes
-        document.querySelectorAll('.skill-card, .project-card, .experience-item, .formation-item').forEach(card => {
+        document.querySelectorAll('.skill-card, .project-card, .experience-item, .formation-item, .certification-card').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'all 0.6s ease';
             observer.observe(card);
+        });
+
+        // Effet de parallaxe léger pour le hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero');
+            const speed = scrolled * 0.5;
+            
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Animation des compteurs (si vous voulez ajouter des statistiques)
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Validation basique pour les liens externes
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Ajouter une vérification si nécessaire
+                console.log('Ouverture du lien externe:', this.href);
+            });
         });
     </script>
 </body>
