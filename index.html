@@ -474,7 +474,240 @@
             text-decoration: none;
         }
 
-        /* Footer */
+        /* Chatbot */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1001;
+        }
+
+        .chatbot-toggle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chatbot-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(102, 126, 234, 0.6);
+        }
+
+        .chatbot-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            animation: slideUp 0.3s ease;
+        }
+
+        .chatbot-window.active {
+            display: flex;
+        }
+
+        .chatbot-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .chatbot-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .chatbot-status {
+            width: 8px;
+            height: 8px;
+            background: #48bb78;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .chatbot-messages {
+            flex: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-content {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 18px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .message.bot .message-content {
+            background: white;
+            border: 1px solid #e2e8f0;
+            color: #4a5568;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .message-avatar {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .message.bot .message-avatar {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .message.user .message-avatar {
+            background: #e2e8f0;
+            color: #4a5568;
+        }
+
+        .chatbot-input {
+            padding: 1rem;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 25px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .chatbot-input input:focus {
+            border-color: #667eea;
+        }
+
+        .chatbot-send {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .chatbot-send:hover {
+            transform: scale(1.1);
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 2px;
+        }
+
+        .typing-dot {
+            width: 4px;
+            height: 4px;
+            background: #667eea;
+            border-radius: 50%;
+            animation: typingAnimation 1.5s infinite;
+        }
+
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @keyframes typingAnimation {
+            0%, 60%, 100% {
+                transform: translateY(0);
+            }
+            30% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* Responsive chatbot */
+        @media (max-width: 480px) {
+            .chatbot-window {
+                width: calc(100vw - 40px);
+                height: 70vh;
+                bottom: 80px;
+                right: -10px;
+            }
+        }
         footer {
             background: #2d3748;
             color: white;
@@ -903,6 +1136,38 @@
         </div>
     </section>
 
+    <!-- Chatbot -->
+    <div class="chatbot-container">
+        <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
+        <div class="chatbot-window" id="chatbotWindow">
+            <div class="chatbot-header">
+                <div class="chatbot-status"></div>
+                <h3>Assistant IA - Innocent</h3>
+            </div>
+            <div class="chatbot-messages" id="chatbotMessages">
+                <div class="message bot">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        Salut ! Je suis l'assistant virtuel d'Innocent. Je peux répondre à vos questions sur son parcours, ses compétences ou ses projets. Comment puis-je vous aider ?
+                    </div>
+                </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="message-avatar">🤖</div>
+                <span>Assistant écrit...</span>
+                <div class="typing-dots">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+            <div class="chatbot-input">
+                <input type="text" id="chatbotInput" placeholder="Tapez votre message..." onkeypress="handleKeyPress(event)">
+                <button class="chatbot-send" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -911,6 +1176,141 @@
     </footer>
 
     <script>
+        // Chatbot functionality
+        let chatbotOpen = false;
+
+        function toggleChatbot() {
+            const chatbotWindow = document.getElementById('chatbotWindow');
+            const toggleBtn = document.querySelector('.chatbot-toggle');
+            
+            chatbotOpen = !chatbotOpen;
+            
+            if (chatbotOpen) {
+                chatbotWindow.classList.add('active');
+                toggleBtn.innerHTML = '✕';
+                document.getElementById('chatbotInput').focus();
+            } else {
+                chatbotWindow.classList.remove('active');
+                toggleBtn.innerHTML = '💬';
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatbotInput');
+            const message = input.value.trim();
+            
+            if (message) {
+                addMessage(message, 'user');
+                input.value = '';
+                
+                // Simulate typing
+                showTypingIndicator();
+                
+                // Get bot response
+                setTimeout(() => {
+                    const response = getBotResponse(message);
+                    hideTypingIndicator();
+                    addMessage(response, 'bot');
+                }, 1000 + Math.random() * 1000);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function addMessage(content, sender) {
+            const messagesContainer = document.getElementById('chatbotMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar';
+            avatar.innerHTML = sender === 'bot' ? '🤖' : '👤';
+            
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            messageContent.innerHTML = content;
+            
+            messageDiv.appendChild(avatar);
+            messageDiv.appendChild(messageContent);
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll to bottom
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            document.getElementById('typingIndicator').style.display = 'flex';
+            const messagesContainer = document.getElementById('chatbotMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function hideTypingIndicator() {
+            document.getElementById('typingIndicator').style.display = 'none';
+        }
+
+        function getBotResponse(message) {
+            const msg = message.toLowerCase();
+            
+            // Réponses sur qui est Innocent
+            if (msg.includes('qui est') || msg.includes('qui es') || msg.includes('présente') || msg.includes('parle-moi de toi') || msg.includes('innocent bigirimana') || msg.includes('à propos')) {
+                return "Innocent BIGIRIMANA est un Data Analyst passionné par l'IA et le Machine Learning. Il est actuellement en Master de Statistique à Strasbourg et recherche une alternance en Data Science. Originaire du Burundi, il combine expertise technique et vision stratégique pour créer des solutions data innovantes.";
+            }
+            
+            // Réponses sur les compétences
+            if (msg.includes('compétence') || msg.includes('skill') || msg.includes('technologie')) {
+                return "Innocent maîtrise Python, SQL, Power BI, Machine Learning avec Scikit-Learn, et FastAPI. Il a aussi de l'expérience en analyse statistique et visualisation de données. Souhaitez-vous plus de détails sur une technologie spécifique ?";
+            }
+            
+            // Réponses sur l'expérience
+            if (msg.includes('expérience') || msg.includes('travail') || msg.includes('stage')) {
+                return "Innocent fait actuellement un stage chez Lallemand SAS où il développe des systèmes de gestion de données et des tableaux de bord Power BI. Il a aussi travaillé à l'Institut National de la Statistique du Burundi sur des modèles prédictifs.";
+            }
+            
+            // Réponses sur la formation
+            if (msg.includes('formation') || msg.includes('étude') || msg.includes('diplôme') || msg.includes('université')) {
+                return "Innocent est en Master de Statistique à l'Université de Strasbourg et va intégrer le Mastère Data Science à Kaischool Paris en septembre 2025. Il a une Licence en probabilité et statistique du Burundi.";
+            }
+            
+            // Réponses sur les projets
+            if (msg.includes('projet') || msg.includes('réalisation') || msg.includes('github')) {
+                return "Ses principaux projets incluent la prédiction des dépenses médicales avec RandomForest, la prédiction des prix immobiliers, et des analyses statistiques avancées (T-tests, ANOVA). Vous pouvez voir son travail sur GitHub !";
+            }
+            
+            // Réponses sur l'alternance
+            if (msg.includes('alternance') || msg.includes('recherche') || msg.includes('emploi') || msg.includes('poste')) {
+                return "Innocent recherche une alternance en Data Science avec un rythme de 4 jours en entreprise et 1 jour en formation. Il est disponible dès septembre 2025. Voulez-vous ses coordonnées ?";
+            }
+            
+            // Réponses sur le contact
+            if (msg.includes('contact') || msg.includes('email') || msg.includes('téléphone') || msg.includes('linkedin')) {
+                return "Vous pouvez contacter Innocent par email : gatoziinnocent@gmail.com ou sur LinkedIn. Il est basé en France et disponible pour des entretiens.";
+            }
+            
+            // Réponses sur les certifications
+            if (msg.includes('certification') || msg.includes('udemy') || msg.includes('cours')) {
+                return "Innocent a plusieurs certifications Udemy en Data Science, Machine Learning, Power BI, et bases de données SQL. Il continue de se former régulièrement sur les dernières technologies.";
+            }
+            
+            // Salutations
+            if (msg.includes('salut') || msg.includes('bonjour') || msg.includes('hello') || msg.includes('hey')) {
+                return "Bonjour ! Ravi de vous parler d'Innocent BIGIRIMANA. Que souhaitez-vous savoir sur son parcours en Data Science ?";
+            }
+            
+            // Réponse par défaut
+            const defaultResponses = [
+                "C'est une excellente question ! Innocent serait ravi de vous en parler directement. Vous pouvez le contacter via ses coordonnées dans la section contact.",
+                "Pour cette question spécifique, je vous recommande de contacter Innocent directement. Il pourra vous donner tous les détails !",
+                "Innocent pourra vous répondre plus précisément. N'hésitez pas à le contacter via LinkedIn ou email !",
+                "Puis-je vous aider avec des questions sur ses compétences, son expérience, ses projets ou sa recherche d'alternance ?"
+            ];
+            
+            return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
+        }
+
         // Menu mobile
         function toggleMobileMenu() {
             const navLinks = document.getElementById('navLinks');
