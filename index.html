@@ -347,6 +347,90 @@
             color: #4a5568;
             font-size: 0.9rem;
         }
+        /* Certifications */
+        .certifications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .certification-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid #ed8936;
+            position: relative;
+        }
+
+        .certification-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .certification-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .certification-title {
+            color: #000;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-provider {
+            color: #ed8936;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .certification-date {
+            color: #000;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .certification-description {
+            color: #000;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .certification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #48bb78;
+            color: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .certification-status {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .status-completed {
+            background: #c6f6d5;
+            color: #2f855a;
+        }
+
+        .status-in-progress {
+            background: #fed7d7;
+            color: #c53030;
+        }        
 
         /* Contact */
         .contact-content {
@@ -436,7 +520,7 @@
                 <li><a href="#skills">Compétences</a></li>
                 <li><a href="#experience">Expérience</a></li>
                 <li><a href="#projects">Projets</a></li>
-                <li><a href="#formation">Formation</a></li>
+                <li><a href="#formation">Formations</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -612,7 +696,7 @@
     <!-- Formation Section -->
     <section id="formation">
         <div class="container">
-            <h2 class="section-title">Formation</h2>
+            <h2 class="section-title">Formations</h2>
             <div class="formation-grid">
                 <div class="formation-item">
                     <div class="formation-title">Mastère 2 Data Science – Expert Data Scientist</div>
@@ -641,6 +725,87 @@
             </div>
         </div>
     </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="certification-badge">✓</div>
+                    <div class="certification-icon">🐍</div>
+                    <div class="certification-title">Python for Data Science</div>
+                    <div class="certification-provider">IBM/Coursera</div>
+                    <div class="certification-date">Juillet 2024</div>
+                    <div class="certification-description">
+                        Maîtrise des fondamentaux de Python pour l'analyse de données, incluant NumPy, Pandas et Matplotlib.
+                    </div>
+                    <div class="certification-status status-completed">Certifié</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">✓</div>
+                    <div class="certification-icon">📊</div>
+                    <div class="certification-title">Data Analysis with Python</div>
+                    <div class="certification-provider">IBM/Coursera</div>
+                    <div class="certification-date">Août 2024</div>
+                    <div class="certification-description">
+                        Techniques avancées d'analyse de données, nettoyage de données et visualisation avec Python.
+                    </div>
+                    <div class="certification-status status-completed">Certifié</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">✓</div>
+                    <div class="certification-icon">🤖</div>
+                    <div class="certification-title">Machine Learning with Python</div>
+                    <div class="certification-provider">IBM/Coursera</div>
+                    <div class="certification-date">Septembre 2024</div>
+                    <div class="certification-description">
+                        Algorithmes de Machine Learning supervisés et non supervisés, évaluation de modèles et optimisation.
+                    </div>
+                    <div class="certification-status status-completed">Certifié</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">📚</div>
+                    <div class="certification-icon">☁️</div>
+                    <div class="certification-title">AWS Cloud Practitioner</div>
+                    <div class="certification-provider">Amazon Web Services</div>
+                    <div class="certification-date">En cours - 2025</div>
+                    <div class="certification-description">
+                        Certification fondamentale sur les services AWS et les concepts de cloud computing pour la Data Science.
+                    </div>
+                    <div class="certification-status status-in-progress">En cours</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">✓</div>
+                    <div class="certification-icon">📈</div>
+                    <div class="certification-title">Data Visualization with Power BI</div>
+                    <div class="certification-provider">Microsoft</div>
+                    <div class="certification-date">Octobre 2024</div>
+                    <div class="certification-description">
+                        Création de tableaux de bord interactifs et visualisations avancées avec Power BI.
+                    </div>
+                    <div class="certification-status status-completed">Certifié</div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="certification-badge">📚</div>
+                    <div class="certification-icon">🔬</div>
+                    <div class="certification-title">Deep Learning Specialization</div>
+                    <div class="certification-provider">DeepLearning.AI</div>
+                    <div class="certification-date">Prévu - 2025</div>
+                    <div class="certification-description">
+                        Spécialisation complète en Deep Learning : réseaux de neurones, CNN, RNN et applications pratiques.
+                    </div>
+                    <div class="certification-status status-in-progress">Prévu</div>
+                </div>
+            </div>
+        </div>
+    </section>    
+    
 
     <!-- Contact Section -->
     <section id="contact">
