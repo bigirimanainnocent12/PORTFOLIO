@@ -307,9 +307,44 @@
                 <div class="underline"></div>
             </div>
             <div class="projects-list">
-                <!-- Project: NYC Taxi Data Pipeline -->
+                <!-- Project: Prédiction du Risque d'Accident Automobile -->
                 <div class="project-item reveal">
                     <div class="project-number">01</div>
+                    <div class="project-details">
+                        <div class="project-header">
+                            <span class="project-category">Data Engineering & ML</span>
+                            <h3>Prédiction du Risque d’Accident (Assurance)</h3>
+                        </div>
+                        <p class="project-desc">Pipeline Data complet (GCS → BigQuery → ML → Cloud Run) pour prédire le risque d’accident grave à partir de la base de la Sécurité Routière, enrichie avec des données OpenWeather et OpenStreetMap. Un outil clé d'aide à la tarification et prévention en assurance.</p>
+
+                        <div class="project-tech-stack">
+                            <h4>Stack Technique</h4>
+                            <div class="tech-tags">
+                                <span>Google Cloud Storage</span>
+                                <span>BigQuery (SQL)</span>
+                                <span>Python</span>
+                                <span>XGBoost</span>
+                                <span>FastAPI</span>
+                                <span>Docker</span>
+                                <span>Cloud Run</span>
+                            </div>
+                        </div>
+
+                        <div class="project-achievements">
+                            <h4>Points Clés & Techniques</h4>
+                            <ul>
+                                <li><strong>Collecte & Data Warehouse :</strong> Ingestion centralisée des fichiers vers une zone d'atterrissage GCS, puis intégration dans un entrepôt structuré sur BigQuery.</li>
+                                <li><strong>Transformation & Enrichissement :</strong> Nettoyage SQL, fusion via <code>Num_Acc</code> et enrichissement externe (API météo réelle, données géospatiales des routes).</li>
+                                <li><strong>Machine Learning :</strong> Création d'une table de features et entraînement d'un modèle XGBoostClassifier pour prédire la probabilité de sinistre grave ou mortel.</li>
+                                <li><strong>Déploiement Cloud MLOps :</strong> Industrialisation du modèle via une API REST FastAPI, conteneurisée sous Docker et déployée de manière scalable sur Cloud Run.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: NYC Taxi Data Pipeline -->
+                <div class="project-item reveal">
+                    <div class="project-number">02</div>
                     <div class="project-details">
                         <div class="project-header">
                             <span class="project-category">Data Engineering & ML & Power BI </span>
@@ -358,7 +393,7 @@
 
                 <!-- Project: Pipeline Météo Automatisé -->
                 <div class="project-item reveal">
-                    <div class="project-number">02</div>
+                    <div class="project-number">03</div>
                     <div class="project-details">
                         <div class="project-header">
                             <span class="project-category">Automation & Backend</span>
@@ -402,7 +437,7 @@
 
             <!-- Project: Optimisation des Ventes -->
             <div class="project-item reveal">
-                <div class="project-number">03</div>
+                <div class="project-number">04</div>
                 <div class="project-details">
                     <div class="project-header">
                         <span class="project-category">Business Intelligence</span>
@@ -435,7 +470,7 @@
 
             <!-- Project: Prédiction des Frais d'Assurance -->
             <div class="project-item reveal">
-                <div class="project-number">04</div>
+                <div class="project-number">05</div>
                 <div class="project-details">
                     <div class="project-header">
                         <span class="project-category">Machine Learning & Deployment</span>
@@ -531,7 +566,7 @@
 
             <!-- Project: Analyse Statistique (ANOVA & Test-T) -->
             <div class="project-item reveal">
-                <div class="project-number">05</div>
+                <div class="project-number">06</div>
                 <div class="project-details">
                     <div class="project-header">
                         <span class="project-category">Statistiques Avancées</span>
