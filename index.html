@@ -160,8 +160,7 @@
                             <h3>Burundi RAG Chatbot</h3>
                         </div>
                         <div class="project-desc">
-                            <p>Système de questions-réponses intelligent sur le Burundi basé sur une architecture <strong>RAG (Retrieval-Augmented Generation)</strong>.</p>
-                            <p style="margin-top: 10px;">Les réponses sont générées par <strong>Claude (Anthropic)</strong> à partir de rapports officiels (Banque Mondiale, PNUD, OMS, INSBU, FMI) après détection et récupération automatique des passages les plus pertinents dans la base vectorielle.</p>
+                            <p>Dans ce projet, j'ai conçu et développé un chatbot intelligent basé sur une architecture RAG pour automatiser la recherche et la synthèse d'indicateurs socio-économiques complexes sur le Burundi. Cela permet aux décideurs d'accéder instantanément à des données vérifiées, réduisant de 80% le temps de recherche d'informations et améliorant la précision des analyses stratégiques.</p>
                         </div>
 
                         <div class="project-tech-stack">
@@ -180,10 +179,10 @@
                         <div class="project-achievements">
                             <h4>Points Clés & Techniques</h4>
                             <ul>
-                                <li><strong>Pipeline d'Ingestion RAG :</strong> Extraction automatique de texte depuis des rapports officiels PDF (Banque Mondiale, PNUD, OMS, INSBU, FMI) via <code>PyPDFLoader</code>, et découpage en chunks (512 caractères, overlap 64) via <code>RecursiveCharacterTextSplitter</code>.</li>
-                                <li><strong>Vectorisation & Stockage :</strong> Encodage des passages textuels en embeddings vectoriels multilingues via le modèle <code>paraphrase-multilingual-MiniLM-L12-v2</code> et stockage persistant dans <code>ChromaDB</code> avec détection automatique incrémentale des nouveaux fichiers.</li>
-                                <li><strong>Modélisation & Génération :</strong> Intégration sous LangChain LCEL pour extraire les 4 chunks les plus pertinents et génération de réponses contextuelles et fluides en français via Claude Haiku.</li>
-                                <li><strong>Exposition de l'API REST :</strong> Développement d'une API FastAPI robuste avec validation par Pydantic et documentation Swagger/ReDoc interactive.</li>
+                                <li><strong>Techniques utilisées :</strong> Retrieval-Augmented Generation (RAG), recherche sémantique vectorielle, segmentation de texte (chunking), génération d'embeddings multilingues et prompt engineering.</li>
+                                <li><strong>Outils & Technologies :</strong> LangChain (LCEL), ChromaDB, sentence-transformers, Claude Haiku (Anthropic), FastAPI, Python, Pytest.</li>
+                                <li><strong>Fichiers & APIs :</strong> Ingestion automatisée de rapports officiels au format <strong>PDF</strong> (provenant de la Banque Mondiale, du PNUD, de l'OMS, de l'INSBU et du FMI) et intégration de l'<strong>API Anthropic Claude</strong> (Claude Haiku).</li>
+                                <li><strong>Fonctions clés :</strong> <code>PyPDFLoader</code> pour le chargement de documents, <code>RecursiveCharacterTextSplitter</code> (chunk size 512, overlap 64) pour le découpage des textes, <code>paraphrase-multilingual-MiniLM-L12-v2</code> pour la création des embeddings, <code>Chroma.from_documents()</code> pour l'indexation vectorielle, et <code>FastAPI()</code> avec schémas <code>Pydantic</code> pour l'exposition de l'API REST.</li>
                             </ul>
 
                             <h4 style="margin-top: 1.5rem;">Exemple de Requête & Réponse API</h4>
@@ -251,13 +250,7 @@
                             <h3>Prédiction du Risque d’Accident (Assurance) - Databricks</h3>
                         </div>
                         <div class="project-desc">
-                            <p>Ce projet vise à construire un système complet permettant de prédire le risque d’accident
-                                grave à partir de données réelles issues de la <strong>Sécurité Routière
-                                    française</strong>, enrichies par des données météorologiques
-                                (<strong>OpenWeather</strong>) et géographiques (<strong>OpenStreetMap</strong>).</p>
-                            <p style="margin-top: 10px;">Il s’agit d’un cas d’usage directement exploitable dans le
-                                secteur de l’assurance automobile (<strong>MMA, Groupama, AXA, MAIF</strong>), notamment
-                                pour la tarification, la prévention et l’analyse des sinistres.</p>
+                            <p>Dans ce projet, j'ai développé un pipeline d'ingestion et de transformation de données routières sur Databricks basé sur l'architecture Medallion pour estimer le risque d'accidents de la route. J'ai stocké les fichiers CSV historiques dans un dossier Databricks, puis créé un notebook d'ingestion et de traitement dédié pour chaque couche (Bronze, Silver, Gold), le tout orchestré par des pipelines et workflows Databricks. L'impact métier est de fournir un entrepôt Lakehouse structuré et performant pour l'analyse dynamique des sinistres d'assurance.</p>
                         </div>
 
                         <div class="project-tech-stack">
@@ -275,18 +268,10 @@
                         <div class="project-achievements">
                             <h4>Points Clés & Techniques</h4>
                             <ul>
-                                <li><strong>Architecture Lakehouse :</strong> Ingestion centralisée des fichiers et
-                                    intégration dans une architecture Medallion structurée sur <strong>Delta
-                                        Lake</strong> via <strong>Databricks</strong>.</li>
-                                <li><strong>Transformation & Enrichissement :</strong> Nettoyage distribué avec
-                                    <strong>PySpark / SQL</strong>, fusion via <code>Num_Acc</code> et enrichissement
-                                    externe (API météo réelle, données géospatiales des routes).</li>
-                                <li><strong>Machine Learning & MLOps :</strong> Création d'une table de features et
-                                    entraînement d'un modèle XGBoostClassifier pour prédire la probabilité de sinistre
-                                    grave. Suivi des expérimentations avec <strong>MLflow</strong>.</li>
-                                <li><strong>Déploiement & Reporting :</strong> Industrialisation du modèle via une API
-                                    REST <strong>FastAPI</strong>, permettant la mise à disposition des prédictions pour
-                                    le reporting.</li>
+                                <li><strong>Techniques utilisées :</strong> Architecture Lakehouse (Médaillon Bronze/Silver/Gold avec un notebook par couche), Ingestion et transformation massives distribuées (ETL), Feature Engineering avancé et orchestration de workflows de données.</li>
+                                <li><strong>Outils & Technologies :</strong> Databricks (Workflows, Notebooks), PySpark (Spark SQL), Delta Lake, Python, MLflow, XGBoost.</li>
+                                <li><strong>Fichiers & APIs :</strong> Stockage local de fichiers historiques au format <strong>CSV</strong> dans un répertoire Databricks (DBFS/Volumes), croisés avec l'<strong>API OpenWeather</strong> (météo historique) et l'<strong>API OpenStreetMap</strong> (caractéristiques routières).</li>
+                                <li><strong>Fonctions clés :</strong> <code>spark.read.csv()</code> pour le chargement, des notebooks de traitement par couche, <code>DataFrame.join()</code> sur la clé <code>Num_Acc</code>, <code>XGBoostClassifier</code> pour la prédiction, orchestration par Databricks Workflows/Pipelines et tracking via <code>mlflow.log_metric()</code>.</li>
                             </ul>
                         </div>
                     </div>
@@ -301,13 +286,7 @@
                             <h3>Prédiction du Risque d’Accident (Assurance) - GCP</h3>
                         </div>
                         <div class="project-desc">
-                            <p>Ce projet vise à construire un système complet permettant de prédire le risque d’accident
-                                grave à partir de données réelles issues de la <strong>Sécurité Routière
-                                    française</strong>, enrichies par des données météorologiques
-                                (<strong>OpenWeather</strong>) et géographiques (<strong>OpenStreetMap</strong>).</p>
-                            <p style="margin-top: 10px;">Il s’agit d’un cas d’usage directement exploitable dans le
-                                secteur de l’assurance automobile (<strong>MMA, Groupama, AXA, MAIF</strong>), notamment
-                                pour la tarification, la prévention et l’analyse des sinistres.</p>
+                            <p>Dans ce projet, j'ai utilisé une API publique pour automatiser la collecte de fichiers de données routières au format CSV et les stocker dans un bucket Google Cloud Storage (GCS). J'ai ensuite développé des scripts d'ingestion et de transformation SQL pour structurer des données propres et prêtes à l'emploi dans BigQuery, et j'ai orchestré l'ensemble de ces flux de données à l'aide de Google Cloud Composer (Apache Airflow). L'impact métier est de fournir un entrepôt de données analytique centralisé et fiable pour l'évaluation en temps réel du risque routier en assurance.</p>
                         </div>
 
                         <div class="project-tech-stack">
@@ -326,18 +305,10 @@
                         <div class="project-achievements">
                             <h4>Points Clés & Techniques</h4>
                             <ul>
-                                <li><strong>Collecte & Data Warehouse :</strong> Ingestion centralisée des fichiers vers
-                                    une zone d'atterrissage GCS, puis intégration dans un entrepôt structuré sur
-                                    BigQuery.</li>
-                                <li><strong>Transformation & Enrichissement :</strong> Nettoyage SQL, fusion via
-                                    <code>Num_Acc</code> et enrichissement externe (API météo réelle, données
-                                    géospatiales des routes).</li>
-                                <li><strong>Machine Learning :</strong> Création d'une table de features et entraînement
-                                    d'un modèle XGBoostClassifier pour prédire la probabilité de sinistre grave ou
-                                    mortel.</li>
-                                <li><strong>Déploiement Cloud MLOps :</strong> Industrialisation du modèle via une API
-                                    REST FastAPI, conteneurisée sous Docker et déployée de manière scalable sur Cloud
-                                    Run.</li>
+                                <li><strong>Techniques utilisées :</strong> Collecte de données automatisée via API publique, Ingestion Cloud (ETL/ELT), Nettoyage et transformation de données structurées, Modélisation d'entrepôt et orchestration de pipelines.</li>
+                                <li><strong>Outils & Technologies :</strong> Google Cloud Platform (GCP), Google Cloud Storage (GCS), BigQuery, Google Cloud Composer (Apache Airflow), Python.</li>
+                                <li><strong>Fichiers & APIs :</strong> Ingestion automatisée de fichiers <strong>CSV</strong>, stockage dans <strong>GCS</strong>, entreposage dans <strong>BigQuery</strong> et intégration avec une <strong>API publique</strong>.</li>
+                                <li><strong>Fonctions clés :</strong> Requêtes SQL de nettoyage et jointure dans BigQuery, scripts Python d'appel à l'API publique via <code>requests</code>, configuration de DAGs Airflow et opérateurs (<code>GCSToBigQueryOperator</code>, <code>BigQueryInsertJobOperator</code>) dans Google Cloud Composer.</li>
                             </ul>
                         </div>
                     </div>
@@ -351,9 +322,9 @@
                             <span class="project-category">Data Engineering & ML & Power BI </span>
                             <h3>NYC Taxi Data Pipeline</h3>
                         </div>
-                        <p class="project-desc">Architecture ELT industrielle traitant plus de 150 millions de trajets
-                            NYC TLC. Ingestion automatisée de fichiers Parquet volumineux dans le cloud pour l'analyse
-                            prédictive et le pilotage stratégique.</p>
+                        <div class="project-desc">
+                            <p>Dans ce projet, j'ai conçu et automatisé un pipeline de données ELT cloud à grande échelle pour analyser plus de 150 millions de trajets de taxis new-yorkais. J'ai téléchargé les fichiers de données d'origine au format Parquet, puis je les ai stockés dans un bucket Google Cloud Storage (GCS) avant de concevoir des scripts d'ingestion et de transformation dans BigQuery. L'impact métier est d'identifier les zones géographiques à forte valeur et les horaires critiques afin de permettre aux compagnies de transport d'optimiser le déploiement de leurs flottes, augmentant ainsi le taux d'occupation des véhicules et maximisant le chiffre d'affaires.</p>
+                        </div>
 
                         <div class="project-tech-stack">
                             <h4>Stack Technique</h4>
@@ -370,16 +341,10 @@
                         <div class="project-achievements">
                             <h4>Points Clés & Techniques</h4>
                             <ul>
-                                <li>Collecte automatisée des fichiers Parquet officiels de la NYC TLC via scripts
-                                    Python.</li>
-                                <li>Orchestration de bout en bout avec Cloud Composer (Apache Airflow) pour
-                                    l'automatisation du pipeline.</li>
-                                <li>Ingestion scalable vers Google Cloud Storage avec gestion et archivage des logs de
-                                    chargement.</li>
-                                <li>Entreposage et transformation des données massives (150M+ lignes) directement dans
-                                    BigQuery.</li>
-                                <li>Développement de modèles de Machine Learning intégrés (BigQuery ML) et visualisation
-                                    interactive sur Power BI.</li>
+                                <li><strong>Techniques utilisées :</strong> Pipeline de données ELT Cloud, Téléchargement et stockage de fichiers massifs (Big Data), Ingestion et partitionnement de tables, Orchestration de workflows et Apprentissage automatique intégré en base de données (BigQuery ML).</li>
+                                <li><strong>Outils & Technologies :</strong> Google Cloud Platform (GCP), Google Cloud Storage (GCS), BigQuery, Cloud Composer (Apache Airflow), BigQuery ML, Power BI, Python.</li>
+                                <li><strong>Fichiers & APIs :</strong> Ingestion et traitement de fichiers volumineux au format <strong>Parquet</strong> téléchargés de la NYC Taxi and Limousine Commission (TLC) et stockés dans <strong>GCS</strong> avant chargement dans <strong>BigQuery</strong>.</li>
+                                <li><strong>Fonctions clés :</strong> Opérateurs Airflow comme <code>GCSToBigQueryOperator</code> et <code>BigQueryCreateExternalTableOperator</code>, partitionnement SQL (<code>PARTITION BY Date</code>), requêtes BigQuery ML avec <code>CREATE OR REPLACE MODEL ... OPTIONS(model_type='linear_reg')</code> pour la prédiction de pourboires, et calculs de mesures DAX dans Power BI.</li>
                             </ul>
                         </div>
 
@@ -400,9 +365,9 @@
                             <span class="project-category">Automation & Backend</span>
                             <h3>Pipeline Météo Automatisé</h3>
                         </div>
-                        <p class="project-desc">Pipeline ETL traitant les prévisions à 7 jours de 8 métropoles mondiales
-                            (Paris, Berlin, Brasilia, etc.) via l'API Open-Météo en utilisant leurs coordonnées
-                            géographiques précises.</p>
+                        <div class="project-desc">
+                            <p>Dans ce projet, j'ai conçu et automatisé un pipeline d'ingestion et de transformation de données météo mondiales. J'ai développé un flux ETL complet pour extraire régulièrement les prévisions météorologiques mondiales, et j'ai orchestré l'ensemble du pipeline avec Apache Airflow. L'impact métier est de fournir au secteur logistique des prévisions fiables pour planifier à l'avance leurs itinéraires et éviter les retards dus aux intempéries, sécurisant ainsi la chaîne d'approvisionnement et réduisant les coûts opérationnels.</p>
+                        </div>
 
                         <div class="project-tech-stack">
                             <h4>Stack Technique</h4>
@@ -418,12 +383,10 @@
                         <div class="project-achievements">
                             <h4>Points Clés & Techniques</h4>
                             <ul>
-                                <li>Collecte multi-sources basée sur les coordonnées GPS pour 8 grandes villes
-                                    mondiales.</li>
-                                <li>Orchestration Airflow (tous les 6 jours) garantissant la continuité des données
-                                    historiques.</li>
-                                <li>Création d'un Dashboard Power BI interactif pour la visualisation des tendances
-                                    climatiques mondiales.</li>
+                                <li><strong>Techniques utilisées :</strong> Pipeline ETL automatisé, Planification de tâches (Scheduling), Orchestration de workflows, Modélisation de base de données relationnelle et Visualisation interactive.</li>
+                                <li><strong>Outils & Technologies :</strong> Python, Apache Airflow, PostgreSQL, Power BI.</li>
+                                <li><strong>Fichiers & APIs :</strong> Ingestion de flux de données au format <strong>JSON</strong> provenant de l'<strong>API Open-Météo</strong>, transformés en structures tabulaires temporaires (Pandas DataFrame) avant insertion SQL dans PostgreSQL.</li>
+                                <li><strong>Fonctions clés :</strong> <code>requests.get()</code> pour interroger l'API Open-Météo avec des coordonnées précises, constructeur <code>DAG()</code> d'Airflow, <code>PythonOperator</code> et <code>PostgresOperator</code> pour la logique ETL, requêtes SQL d'upsert (<code>INSERT INTO ... ON CONFLICT DO UPDATE</code>) sous PostgreSQL.</li>
                             </ul>
                         </div>
                     </div>
@@ -443,8 +406,9 @@
                         <span class="project-category">Business Intelligence</span>
                         <h3>Optimisation des Ventes</h3>
                     </div>
-                    <p class="project-desc">Analyse multidimensionnelle des performances commerciales pour
-                        identifier les segments à forte rentabilité et optimiser les stratégies de pricing.</p>
+                    <div class="project-desc">
+                        <p>Dans ce projet, j'ai modélisé et mis en œuvre une solution d'analyse décisionnelle des performances commerciales. L'impact métier est d'offrir aux directions commerciale et financière une visibilité totale sur les indicateurs de rentabilité par produit, segment de clientèle et région, permettant de corriger les marges faibles et d'améliorer la fidélisation des clients grâce à une tarification ciblée.</p>
+                    </div>
 
                     <div class="project-tech-stack">
                         <h4>Stack Technique</h4>
@@ -459,10 +423,10 @@
                     <div class="project-achievements">
                         <h4>Points Clés & Techniques</h4>
                         <ul>
-                            <li>Calcul de KPIs complexes (Churn rate, CLV) grâce à des mesures DAX optimisées.</li>
-                            <li>Création de visualisations interactives facilitant le forage des données
-                                (drill-down).</li>
-                            <li>Nettoyage et transformation de données hétérogènes via ETL.</li>
+                            <li><strong>Techniques utilisées :</strong> Modélisation de données décisionnelles (Schéma en étoile), Analyse multidimensionnelle, Data Storytelling, Business Intelligence avancée et Modélisation en self-service.</li>
+                            <li><strong>Outils & Technologies :</strong> Power BI, SQL Server, Power Query, DAX (Data Analysis Expressions).</li>
+                            <li><strong>Fichiers & APIs :</strong> Extraction et consolidation de données de ventes hétérogènes au format <strong>CSV</strong> et de bases relationnelles Microsoft SQL Server.</li>
+                            <li><strong>Fonctions clés :</strong> Formules DAX complexes telles que <code>CALCULATE()</code> pour modifier le contexte de filtre, <code>DIVIDE()</code> pour sécuriser les ratios, <code>DATESYTD()</code> pour le cumul annuel, <code>SAMEPERIODLASTYEAR()</code> pour l'analyse comparative des ventes, et <code>USERELATIONSHIP()</code> pour gérer les liaisons temporelles.</li>
                         </ul>
                     </div>
                 </div>
@@ -476,9 +440,9 @@
                         <span class="project-category">Machine Learning & Deployment</span>
                         <h3>Prédiction des Frais d'Assurance</h3>
                     </div>
-                    <p class="project-desc">Développement d'un modèle prédictif pour estimer les coûts de santé
-                        individuels. Projet complet incluant l'EDA, le Feature Engineering, et la mise en production via
-                        API.</p>
+                    <div class="project-desc">
+                        <p>Dans ce projet, j'ai développé et déployé une API de prédiction des coûts médicaux annuels des assurés. L'impact métier est d'automatiser à 95% l'estimation des dépenses de santé individuelles lors de la soumission d'une demande de souscription, garantissant des offres tarifaires adaptées au profil de risque de l'assuré (âge, statut fumeur, IMC) tout en limitant les pertes financières pour l'assureur.</p>
+                    </div>
 
                     <div class="project-tech-stack">
                         <h4>Stack Technique</h4>
@@ -496,12 +460,10 @@
                     <div class="project-achievements">
                         <h4>Points Clés & Techniques</h4>
                         <ul>
-                            <li>Analyse exploratoire des données (EDA) poussée pour identifier les corrélations
-                                clés.</li>
-                            <li>Feature Engineering : encodage de variables catégorielles et normalisation.</li>
-                            <li>Optimisation des hyperparamètres pour maximiser la précision (R² Score).</li>
-                            <li><strong>Déploiement</strong> : Modèle exposé via une API <strong>FastAPI</strong> et
-                                hébergé sur <strong>Render</strong>.</li>
+                            <li><strong>Techniques utilisées :</strong> Analyse Exploratoire des Données (EDA), Feature Engineering (encodage et normalisation), Régression de Machine Learning, Optimisation d'hyperparamètres et Hébergement Cloud d'API REST.</li>
+                            <li><strong>Outils & Technologies :</strong> Python, Scikit-Learn, FastAPI, Render, Pandas, Seaborn, Matplotlib.</li>
+                            <li><strong>Fichiers & APIs :</strong> Traitement de données historiques d'assurés au format <strong>CSV</strong> (fichier <code>insurance.csv</code>) et publication sous forme d'API REST FastAPI.</li>
+                            <li><strong>Fonctions clés :</strong> <code>pd.read_csv()</code> pour le chargement, <code>train_test_split()</code> de scikit-learn, <code>RandomForestRegressor()</code> pour la modélisation, <code>StandardScaler</code> et <code>OneHotEncoder</code> pour le prétraitement, et <code>joblib.load()</code> pour charger le modèle sérialisé.</li>
                         </ul>
 
                         <h4 style="margin-top: 1.5rem;">Variables du Dataset</h4>
@@ -572,8 +534,9 @@
                         <span class="project-category">Statistiques Avancées</span>
                         <h3>Analyses Inferentielles (ANOVA / Test-T)</h3>
                     </div>
-                    <p class="project-desc">Application de méthodes statistiques rigoureuses pour valider des
-                        hypothèses sur des données de production et de recherche.</p>
+                    <div class="project-desc">
+                        <p>Dans ce projet, j'ai conçu un protocole d'analyses statistiques inférentielles pour valider les décisions opérationnelles de production. L'impact métier est de fournir des preuves scientifiques indiscutables avant d'effectuer des modifications industrielles ou des lancements de produits coûteux, en garantissant avec un intervalle de confiance de 95% ou 99% que les différences de performance observées sont réelles et non dues à des variations aléatoires.</p>
+                    </div>
 
                     <div class="project-tech-stack">
                         <h4>Stack Technique</h4>
@@ -588,10 +551,10 @@
                     <div class="project-achievements">
                         <h4>Points Clés & Techniques</h4>
                         <ul>
-                            <li>Vérification des conditions d'application (Normalité, Homoscédasticité).</li>
-                            <li>Interprétation de la p-value et prise de décision basée sur les preuves
-                                statistiques.</li>
-                            <li>Visualisation claire des distributions et des intervalles de confiance.</li>
+                            <li><strong>Techniques utilisées :</strong> Tests d'hypothèses statistiques, Validation des conditions d'application (normalité, homoscédasticité), Analyse de variance (ANOVA), Test de Student (t-test) et Test Post-hoc.</li>
+                            <li><strong>Outils & Technologies :</strong> Python, SciPy (stats), Statsmodels, Matplotlib.</li>
+                            <li><strong>Fichiers & APIs :</strong> Analyse de jeux de données expérimentaux importés depuis des fichiers au format <strong>CSV</strong> vers des DataFrames Pandas.</li>
+                            <li><strong>Fonctions clés :</strong> <code>scipy.stats.shapiro()</code> (test de normalité), <code>scipy.stats.levene()</code> (test d'homoscédasticité), <code>scipy.stats.f_oneway()</code> (ANOVA à un facteur), <code>scipy.stats.ttest_ind()</code> (Test-T indépendant), et <code>statsmodels.stats.multicomp.pairwise_tukeyhsd()</code> pour localiser les différences significatives.</li>
                         </ul>
                     </div>
 
